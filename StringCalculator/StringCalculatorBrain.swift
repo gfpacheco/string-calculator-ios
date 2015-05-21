@@ -8,7 +8,8 @@
 
 struct StringCalculatorBrain {
 
-    func add(string: String) -> Int {
+    func add(var string: String) -> Int {
+        string = string.stringByReplacingOccurrencesOfString("\n", withString: ",")
         let partials = string.componentsSeparatedByString(",")
         let numbers = partials.map({ $0.toInt() ?? 0 })
         return numbers.reduce(0, combine: { (sum, number) -> Int in sum + number })
