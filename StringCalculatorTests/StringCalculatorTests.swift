@@ -11,9 +11,12 @@ import XCTest
 import StringCalculator
 
 class StringCalculatorTests: XCTestCase {
+
+    var stringCalculatorBrain: StringCalculatorBrain!
     
     override func setUp() {
         super.setUp()
+        stringCalculatorBrain = StringCalculatorBrain()
     }
     
     override func tearDown() {
@@ -21,8 +24,11 @@ class StringCalculatorTests: XCTestCase {
     }
     
     func testAddEmptyString() {
-        let stringCalculatorBrain = StringCalculatorBrain()
         XCTAssertEqual(stringCalculatorBrain.add(""), 0, "it should return 0 when add an empty string")
+    }
+
+    func testAddStringWithOneNumber() {
+        XCTAssertEqual(stringCalculatorBrain.add("1"), 1, "it should return the actual number when add a string with one number")
     }
     
 }

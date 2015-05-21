@@ -9,7 +9,7 @@
 struct StringCalculatorBrain {
 
     func add(string: String) -> Int {
-        return 0
+        return string.toInt() ?? 0
     }
 
 }
