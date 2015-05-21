@@ -9,9 +9,20 @@
 struct StringCalculatorBrain {
 
     func add(var string: String) -> Int {
-        string = string.stringByReplacingOccurrencesOfString("\n", withString: ",")
-        let partials = string.componentsSeparatedByString(",")
-        let numbers = partials.map({ $0.toInt() ?? 0 })
+        let delimiter: String
+
+        if string.hasPrefix("//") {
+            let stringParts = string.componentsSeparatedByString("\n")
+            let delimiterPart = stringParts[0]
+            delimiter = delimiterPart.substringFromIndex(advance(delimiterPart.startIndex, 2))
+            string = stringParts[1]
+        } else {
+            string = string.stringByReplacingOccurrencesOfString("\n", withString: ",")
+            delimiter = ","
+        }
+
+        let numbersAsStrings = string.componentsSeparatedByString(delimiter)
+        let numbers = numbersAsStrings.map({ $0.toInt() ?? 0 })
         return numbers.reduce(0, combine: { (sum, number) -> Int in sum + number })
     }
     
