@@ -10,7 +10,8 @@ import Foundation
 
 class StringCalculatorBrain {
 
-    func add(string: String) -> Int {
+    func add(var string: String) -> Int {
+        string = string.stringByReplacingOccurrencesOfString("\n", withString: ",")
         let numbersAsStrings = string.componentsSeparatedByString(",")
         let numbers = numbersAsStrings.map({ $0.toInt() ?? 0 })
         return numbers.reduce(0, combine: { $0 + $1 })
