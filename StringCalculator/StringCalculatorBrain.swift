@@ -12,13 +12,8 @@ class StringCalculatorBrain {
 
     func add(string: String) -> Int {
         let numbersAsStrings = string.componentsSeparatedByString(",")
-        let number1 = numbersAsStrings[0].toInt() ?? 0
-        if numbersAsStrings.count == 1 {
-            return number1;
-        } else {
-            let number2 = numbersAsStrings[1].toInt() ?? 0
-            return number1 + number2
-        }
+        let numbers = numbersAsStrings.map({ $0.toInt() ?? 0 })
+        return numbers.reduce(0, combine: { $0 + $1 })
     }
 
 }

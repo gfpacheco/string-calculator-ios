@@ -33,4 +33,8 @@ class StringCalculatorTests: XCTestCase {
         XCTAssertEqual(stringCalculator.add("1,2"), 3, "it should return the sum of the numbers when add a string with two comma separated numbers")
     }
 
+    func testAddStringWithNCommaSeparatedNumbers() {
+        XCTAssertEqual(stringCalculator.add("1,2,3,4"), 10, "it should return the sum of the numbers when add a string with n comma separated numbers")
+    }
+    
 }
