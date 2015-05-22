@@ -40,5 +40,9 @@ class StringCalculatorTests: XCTestCase {
     func testAddStringWithNCommaOrNewLineSeparatedNumbers() {
         XCTAssertEqual(stringCalculator.add("1,2\n3,4"), 10, "it should return the numbers when add a string with comma or new line separated numbers")
     }
+
+    func testAddStringWithDefinedDelimiterSeparatedNumbers() {
+        XCTAssertEqual(stringCalculator.add("//;\n1;2"), 3, "it should return the sum of the numbers when add a string with defined delimiter separated numbers")
+    }
     
 }
