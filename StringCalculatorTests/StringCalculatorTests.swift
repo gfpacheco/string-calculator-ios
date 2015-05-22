@@ -28,4 +28,9 @@ class StringCalculatorTests: XCTestCase {
     func testAddStringWithOneNumber() {
         XCTAssertEqual(stringCalculator.add("1"), 1, "it should return the actual number when add a string with one number")
     }
+
+    func testAddStringWithTwoCommaSeparatedNumbers() {
+        XCTAssertEqual(stringCalculator.add("1,2"), 3, "it should return the sum of the numbers when add a string with two comma separated numbers")
+    }
+
 }
